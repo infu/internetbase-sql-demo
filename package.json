@@ -1,0 +1,15 @@
+{
+    "scripts": {
+        "dfx_install": "DFX_VERSION=0.13.1 sh -ci \"$(curl -fsSL https://sdk.dfinity.org/install.sh)\"",
+        "replica_start": "dfx start --host 0.0.0.0:8080 ",
+        "replica_stop": "dfx stop",
+        "deploy": "dfx deploy hello",
+        "deploy:prod": "dfx deploy --network ic hello",
+        "canister_uninstall": "dfx canister uninstall-code hello"
+    },
+    "dependencies": {
+        "azle": "0.16.0-rc.0",
+        "ibase_sql": "file:../ibase_sql"
+    }
+}
+

@@ -1,0 +1,103 @@
+type Category = record {
+  id : nat32;
+  image_url : opt text;
+  name : text;
+  parent_id : opt nat32;
+};
+type MyInfo = record {
+  id : nat32;
+  username : text;
+  image_url : opt text;
+  tokens : nat32;
+  rating : float64;
+  total_ratings : nat32;
+  last_logged_in : text;
+};
+type Order = record {
+  status : nat32;
+  updated_at : text;
+  chat : text;
+  created_at : text;
+  service_id : nat32;
+  seller_id : nat32;
+  prompt : text;
+  buyer_id : nat32;
+  price : nat32;
+  completed_at : opt text;
+  rated : opt nat32;
+};
+type Service = record {
+  id : nat32;
+  title : text;
+  image_url : opt text;
+  completed_count : nat32;
+  created_at : text;
+  user_id : nat32;
+  is_available : nat8;
+  rating : float64;
+  avg_completion_time : nat32;
+  price : nat32;
+  category_id : nat32;
+  total_ratings : nat32;
+};
+type ServiceFull = record {
+  id : nat32;
+  title : text;
+  user_name : text;
+  user_img : text;
+  user_rating : float64;
+  image_url : text;
+  user_total_ratings : nat32;
+  description : text;
+  completed_count : nat32;
+  created_at : text;
+  user_id : nat32;
+  is_available : nat8;
+  rating : float64;
+  avg_completion_time : nat32;
+  price : nat32;
+  user_about : text;
+  category_id : nat32;
+  total_ratings : nat32;
+  gallery : text;
+};
+type UserInfo = record {
+  about : text;
+  username : text;
+  image_url : text;
+  created_at : text;
+  rating : float64;
+  total_ratings : nat32;
+  last_logged_in : text;
+};
+type UserService = record {
+  id : nat32;
+  title : text;
+  user_name : text;
+  user_img : text;
+  user_rating : float64;
+  image_url : opt text;
+  user_total_ratings : nat32;
+  completed_count : nat32;
+  created_at : text;
+  user_id : nat32;
+  rating : float64;
+  avg_completion_time : nat32;
+  price : nat32;
+  category_id : nat32;
+  total_ratings : nat32;
+};
+service : () -> {
+  execute : (text) -> (nat32);
+  get_categories : () -> (vec Category);
+  get_category_services : (nat32) -> (vec UserService) query;
+  get_my_info : () -> (MyInfo) query;
+  get_order : (nat32) -> (Order) query;
+  get_service : (nat32) -> (ServiceFull) query;
+  get_top_services : () -> (vec UserService) query;
+  get_user_info : (nat32) -> (UserInfo) query;
+  get_user_services : (nat32) -> (vec Service) query;
+  "query" : (text) -> (text) query;
+  search_services : (text) -> (vec UserService) query;
+  user_register : (text, text, text) -> (nat32);
+}
