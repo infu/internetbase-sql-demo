@@ -1,5 +1,5 @@
 import { $query, $update, nat32, nat8, Opt, text, float64, Vec, Record, Tuple, blob } from "azle";
-import { db, me } from "ibase_sql";
+import { db, me } from "internetbase-sql";
 
 type Category = Record<{
   id: nat32;
