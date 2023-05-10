@@ -88,6 +88,7 @@ type UserService = record {
   total_ratings : nat32;
 };
 service : () -> {
+  execute : (text) -> (nat32);
   get_categories : () -> (vec Category);
   get_category_services : (nat32) -> (vec UserService) query;
   get_my_info : () -> (MyInfo) query;

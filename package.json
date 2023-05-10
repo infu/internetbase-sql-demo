@@ -8,7 +8,7 @@
         "canister_uninstall": "dfx canister uninstall-code hello"
     },
     "dependencies": {
-        "azle": "0.16.0",
+        "azle": "0.16.0-rc.0",
         "internetbase-sql": "file:../ibase_sql"
     }
 }
